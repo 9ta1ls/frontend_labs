@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background-color: black;
+}
+
+header {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    
+}
+
+nav{
+    display: flex;
+    text-align: center;
+    z-index: 2;
+}
+#header-name{
+    font-size: 110px;
+    z-index: 2;
+    position: absolute;
+    top: 25%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    color:#C84630;
+    font-family: "Playfair Display", serif;
+}
+
+#header-photo{
+    z-index:1;
+    object-fit: cover;
+    width:100%;
+    position: relative;
+}
+
+#photo-gallery{
+    max-width: 1024px;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10%;
+    display: flex;
+    gap: 20px;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+#photo-gallery img{
+    width: 100%;
+    object-fit:cover;
+
+}
+
+@media(max-width:768px){
+    #photo-gallery{
+        flex-direction: column;
+    }
+    #header-photo{
+        height: 130vh; 
+    }
+    #header-name{
+        top:25%;  
+        font-size:250%;   
+    }
+}
+
+#nav-buttons button{
+    background-color:rgba(200, 30, 48, 0.15);
+    color: rgb(200, 70, 48);
+    border-color: #C84630;
+    border-radius: 5px;
+    width: 70px;
+    height: 35px;
+    margin: 0px 3px;
+    font-family: Arial;
+    font-weight: 650;
+}
+
+#nav-buttons{
+    position: fixed;
+    top: 25px;
+    right: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+#about-container{
+    margin-top: 200px;
+    margin-bottom: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#about-block{
+    display: flex;
+    flex-direction: row;
+    width:80%;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+#about-picture img{
+    width: 100%;
+}
+
+#about-picture {
+    width: 40%;
+    height: 30%;
+}
+
+#about-text{
+    font-size: 2.7dvh;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    color:white;
+    width:60%;
+    font-family: "Playfair Display", serif;
+}
