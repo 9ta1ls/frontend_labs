@@ -28,7 +28,7 @@ nav{
     z-index: 2;
 }
 #header-name{
-    font-size: 110px;
+    font-size: 90px;
     z-index: 2;
     position: absolute;
     top: 25%; 
@@ -132,5 +132,5 @@ nav{
     justify-content: center;
     color:white;
     width:60%;
-    font-family: "Playfair Display", serif;
+    font-family: Arial;
 }
