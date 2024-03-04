@@ -77,6 +77,9 @@ nav{
         top:25%;  
         font-size:250%;   
     }
+    #about-block{
+        gap:20px
+    }
 }
 
 #nav-buttons button{
@@ -133,4 +136,39 @@ nav{
     color:white;
     width:60%;
     font-family: Arial;
+}
+
+#contact-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    color:white;
+    height:70vh;
+    gap:20vh;
+}
+
+.contact-text{
+    display: flex;
+    font-size: 170%;
+    height: 20%;
+    justify-content: center;
+    font-family: "Playfair Display", serif;
+    color: #C84630;
+}
+
+.contact-links{
+    display: flex;
+    height: 80%;
+    justify-content: center;
+    gap:15vh;
+    color:white;
+    font-size:120%;
+
+}
+
+.contact-links a{
+    color:white;
+    font-family: Arial, Helvetica, sans-serif   ;
 }
