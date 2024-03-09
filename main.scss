@@ -1,0 +1,252 @@
+$main-red-color: #C84630;
+
+* {
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background-color: black;
+}
+
+header {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    #header-name{
+        font-size: 90px;
+        z-index: 2;
+        position: absolute;
+        top: 25%; 
+        left: 50%; 
+        transform: translate(-50%, -50%);
+        color: $main-red-color;
+        font-family: "Playfair Display", serif;
+    }
+    #header-photo{
+        z-index:1;
+        object-fit: cover;
+        width:100%;
+        position: relative;
+    }
+}
+
+nav{
+    display: flex;
+    text-align: center;
+    z-index: 2;
+    #nav-buttons{
+        position: fixed;
+        top: 25px;
+        right: 40px;
+        font-size: 16px;
+        cursor: pointer;
+        z-index: 9999;
+        button{
+            background-color:rgba(200, 30, 48, 0.15);
+            color: rgb(200, 70, 48);
+            border-color: $main-red-color;
+            border-radius: 5px;
+            width: 70px;
+            height: 35px;
+            margin: 0px 3px;
+            font-family: Arial;
+            font-weight: 650;
+        }
+    }
+    
+}
+
+#photo-gallery{
+    max-width: 1024px;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10%;
+    display: flex;
+    gap: 20px;
+    
+    img{
+        width: 100%;
+        object-fit:cover;
+    }
+    .column{
+        display: flex;
+        flex-direction: column;
+        gap: 20px
+    }
+}
+
+
+
+#nav-button-phone{
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 9999;
+
+    #menu-button{
+        background-color:rgba(200, 30, 48, 0.15);
+        color: rgb(200, 70, 48);
+        border-color: $main-red-color;
+        border-width: 2px;
+        border-radius: 5px;
+        border-style:solid;
+        width: 70px;
+        height: 35px;
+        font-family: Arial;
+        font-weight: 650;
+        padding: 8px;
+    }
+}
+
+@media(max-width:768px){
+    #photo-gallery{
+        flex-direction: column;
+    }
+    #header-photo{
+        height: 130vh; 
+    }
+    #header-name{
+        top:25%;  
+        font-size:250%;   
+    }
+    #about-block{
+        gap:20px;
+    }
+    #about-text{
+        font-size: 1.7dvh;
+    }
+    #nav-buttons{
+        display: none;
+        flex-direction: column;
+        gap: 7px;
+        margin-top: 27px;
+        margin-right: -23px;
+         
+    } 
+    #nav-button-phone{
+        display: flex
+    }
+}
+
+ /* АНІМАЦІЯ */
+
+ @keyframes slideIn {
+    0% {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        opacity: 0;
+        transform: translate(100px, 0px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+}
+
+.slide-in {
+    animation: slideIn 508ms 1 ease-out;
+}
+
+.slide-out {
+    animation: slideOut 508ms 1 ease-out;
+    opacity: 1;
+}
+ /*  */
+
+
+#about-container{
+    margin-top: 200px;
+    margin-bottom: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #about-block{
+        display: flex;
+        flex-direction: row;
+        width:80%;
+        box-sizing: border-box;
+        background-color: rgba(0, 0, 0, 0.15);
+
+        #about-picture img{
+            width: 100%;
+        }
+
+        #about-picture {
+            width: 40%;
+            height: 30%;
+        }
+
+        #about-text{
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            color:white;
+            width:60%;
+            font-family: Arial;
+        }
+        
+    }
+}
+
+#contact-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    color:white;
+    height:70vh;
+    gap:20vh;
+
+    .contact-text{
+        display: flex;
+        font-size: 170%;
+        height: 20%;
+        justify-content: center;
+        font-family: "Playfair Display", serif;
+        color: #C84630;
+    }
+
+    .contact-links{
+        display: flex;
+        height: 80%;
+        justify-content: center;
+        flex-wrap:wrap;
+        gap:15vh;
+        color:white;
+        font-size:120%;
+        a{
+            color:white;
+            font-family: Arial, Helvetica, sans-serif   ;
+        }
+    }
+}
+
+
+
+
+
+
+
