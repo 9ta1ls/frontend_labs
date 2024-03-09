@@ -133,6 +133,9 @@ nav #nav-buttons button {
   #nav-button-phone {
     display: flex;
   }
+  #about-block {
+    width: 90%;
+  }
 }
 /* АНІМАЦІЯ */
 @keyframes slideIn {
@@ -179,12 +182,12 @@ nav #nav-buttons button {
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.15);
 }
-#about-container #about-block #about-picture img {
-  width: 100%;
-}
 #about-container #about-block #about-picture {
-  width: 40%;
+  width: 30%;
   height: 30%;
+}
+#about-container #about-block #about-picture img {
+  width: 120%;
 }
 #about-container #about-block #about-text {
   display: flex;

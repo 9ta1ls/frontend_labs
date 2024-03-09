@@ -138,6 +138,9 @@ nav{
     #nav-button-phone{
         display: flex
     }
+    #about-block{
+        width:90%;
+    }
 }
 
  /* АНІМАЦІЯ */
@@ -188,14 +191,12 @@ nav{
         width:80%;
         box-sizing: border-box;
         background-color: rgba(0, 0, 0, 0.15);
-
-        #about-picture img{
-            width: 100%;
-        }
-
         #about-picture {
-            width: 40%;
+            width: 30%;
             height: 30%;
+            img{
+                width: 120%;
+            }
         }
 
         #about-text{
