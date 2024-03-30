@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Survey</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1 id="title">Survey</h1>
+  <form id="surveyForm">
+    <div id="formContainer">
+        <div>
+            <label for="name">1. Enter your name: </label>
+            <input type="text" id="name" name="name">
+        </div>
+    
+        <div>
+          <label for="gender">2. Select your gender:</label>
+          <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div>
+          <label>3. How do you usually travel?</label><br>
+          <input type="checkbox" id="car" name="travelMethod" value="car">
+          <label for="car">Car</label><br>
+          <input type="checkbox" id="publicTransport" name="travelMethod" value="publicTransport">
+          <label for="publicTransport">Public Transport</label><br>
+          <input type="checkbox" id="bike" name="travelMethod" value="bike">
+          <label for="bike">Bike</label><br>
+          <input type="checkbox" id="walking" name="travelMethod" value="walking">
+          <label for="walking">Walking</label>
+        </div>
+        <div>
+          <label for="age">4. Enter your age:</label>
+          <input type="number" id="age" name="age" min="18" max="100">
+        </div>
+        <div>
+          <label>5. Select your favorite color: </label>
+          <label for="colorPicker">Select a color:</label>
+          <input type="color" id="colorPicker" name="color">
+        </div>
+        <div>
+            <label>6. Have you traveled abroad?</label><br>
+            <input type="radio" id="yes" name="travelAbroad" value="yes">
+            <label for="yes">Yes</label><br>
+            <input type="radio" id="no" name="travelAbroad" value="no">
+            <label for="no">No</label>
+          </div>
+        <div>
+          <label>7. Select your favorite music genre:</label><br>
+          <input type="radio" id="pop" name="musicGenre" value="pop">
+          <label for="pop">Pop</label><br>
+          <input type="radio" id="rock" name="musicGenre" value="rock">
+          <label for="rock">Rock</label><br>
+          <input type="radio" id="electronic" name="musicGenre" value="electronic">
+          <label for="electronic">Electronic</label><br>
+          <input type="radio" id="classical" name="musicGenre" value="classical">
+          <label for="classical">Classical</label>
+        </div>
+    
+        <div>
+            <label for="email">8. Enter your email: </label>
+            <input type="email" id="email" name="email">
+          </div>
+      
+        <div>
+          <label>9. Select your favorite season:</label><br>
+          <input type="radio" id="spring" name="favoriteSeason" value="spring">
+          <label for="spring">Spring</label><br>
+          <input type="radio" id="summer" name="favoriteSeason" value="summer">
+          <label for="summer">Summer</label><br>
+          <input type="radio" id="autumn" name="favoriteSeason" value="autumn">
+          <label for="autumn">Autumn</label><br>
+          <input type="radio" id="winter" name="favoriteSeason" value="winter">
+          <label for="winter">Winter</label>
+        </div>
+      
+        <div>
+            <label>10. Select a convenient time for an interview:</label><br>
+            <input type="datetime-local" id="interviewTime" name="interviewTime">
+        </div>
+        
+        <button type="button" onclick="submitData()">Submit</button>
+    
+        <p></p>
+        
+        <button type="button" onclick="results()">Show results</button>
+    
+    </div>
+    
+
+  </form>
+
+  <div style="display: none;" id="results">
+    <h2>Male Pollsters:</h2>
+    <div class="pollstersDiv" id="malePollsters"></div>
+    <h2>Pollesters have traveled abroad:</h2>
+    <div class="pollstersDiv" id="travelAbroad"></div>
+    <h2>Pollesters who older than 25:</h2>
+    <div class="pollstersDiv" id="olderThan"></div>
+  </div>
+
+  <script>
+        let submitions = [];
+        function submitData(){
+            let name = document.getElementById('name').value;
+            console.log(name);
+
+            let gender = document.querySelector('#gender').value;
+            console.log(gender);
+
+            let travelMethods = [];
+            let checkboxes = document.getElementsByName('travelMethod')
+            for(let i = 0; i < checkboxes.length; i++){
+                if(checkboxes[i].checked){
+                    travelMethods.push(checkboxes[i].value);
+                }
+            }
+            console.log(travelMethods);
+
+            let age = document.getElementById('age').value;
+            console.log(age);
+
+            let fav_color = document.getElementById('colorPicker').value;
+            console.log(fav_color);
+
+            let haveTraveled = document.querySelector('input[name="travelAbroad"]:checked').value;
+            console.log(haveTraveled);
+
+            let musicGenre = document.querySelector('input[name="musicGenre"]:checked').value;
+            console.log(musicGenre);
+
+            let email = document.getElementById('email').value;
+            console.log(email);
+
+            let favoriteSeason = document.querySelector('input[name="favoriteSeason"]:checked').value;
+            console.log(favoriteSeason);
+            
+            let interviewTime = document.getElementById('interviewTime').value;
+            console.log(interviewTime);
+
+            let data = {
+                name: name,
+                gender: gender,
+                travelMethods: travelMethods,
+                age: age,
+                fav_color: fav_color,
+                haveTraveled: haveTraveled,
+                musicGenre: musicGenre,
+                email: email,
+                favoriteSeason: favoriteSeason,
+                interviewTime: interviewTime
+            };
+
+            submitions.push(data);
+
+            localStorage.setItem('submitions', JSON.stringify(submitions));
+
+            let form = document.getElementById('surveyForm');
+            form.reset();
+       }
+
+
+       function results(){
+            let form = document.getElementById('surveyForm');
+            let results = document.getElementById('results');
+
+            let malePollsters_div = document.getElementById('malePollsters');
+            let travelAbroad_div = document.getElementById('travelAbroad');
+            let olderThan_div = document.getElementById('olderThan');
+
+
+            form.style.display = 'none';
+            results.style.display = 'block';
+
+            let submitions = localStorage.getItem('submitions');
+
+            let data = JSON.parse(submitions);
+            let maleArray = [];
+            let travelAbroad = [];
+            let olderThan = [];
+
+            data.forEach(element => {
+                console.log(element);
+                if(element.gender == 'male'){
+                    maleArray.push(element);
+                }
+                if(element.travelAbroad == 'yes'){
+                    travelAbroad.push(element);
+                }
+                if(element.age > 25){
+                    olderThan.push(element);
+                }
+            });
+
+        
+            
+
+            maleArray.forEach(element => {
+                var div = document.createElement('div');
+                 div.innerHTML = `
+                    <p>Name: ${element.name}</p>
+                    <p>Email: ${element.email}</p>
+                    <p>Age: ${element.age}</p>
+                    <hr>
+                `;
+                malePollsters_div.appendChild(div);
+            });
+
+            travelAbroad.forEach(element => {
+                var div = document.createElement('div');
+                 div.innerHTML = `
+                    <p>Name: ${element.name}</p>
+                    <p>Email: ${element.email}</p>
+                    <p>Age: ${element.age}</p>
+                    <hr>
+                `;
+                travelAbroad_div.appendChild(div);
+            });
+
+            olderThan.forEach(element => {
+                var div = document.createElement('div');
+                 div.innerHTML = `
+                    <p>Name: ${element.name}</p>
+                    <p>Email: ${element.email}</p>
+                    <p>Age: ${element.age}</p>
+                    <hr>
+                `;
+                olderThan_div.appendChild(div);
+            });
+            
+       }
+       
+  </script>
+</body>
+</html>

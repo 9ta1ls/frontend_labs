@@ -1,0 +1,59 @@
+body{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #6B8F71;
+    font-size: large;
+}
+
+button{
+    border-radius: 10px;
+    border-width: 2px;
+    border-color:black;
+    box-shadow: none;
+    font-size: large;
+    color: rgb(0, 0, 0);
+    background-color: #6B8F71;
+    height: 40px;
+}
+
+#formContainer{
+    background-color: #aad2ba9d;
+    border: solid;
+    border-color: #6B8F71;
+    border-width: 5px;
+    border-radius: 15px;
+    width:33%;
+    margin-left: 33%;
+    margin-right: 33%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+    padding: 20px;
+}
+
+#results{
+    border: solid;
+    border-color: #6B8F71;
+    border-width: 5px;
+    border-radius: 15px;
+    width:33%;
+    margin-left: 33%;
+    margin-right: 33%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+    padding: 20px;
+}
+
+ div.pollstersDiv{
+    background-color: #aad2ba9d;
+    border-color: #6B8F71;
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+hr{
+    color: #6B8F71;
+}
