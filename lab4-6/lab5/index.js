@@ -108,32 +108,66 @@ const testData = {
     ]
 };
 
-const testContainer = document.getElementById('test-container');
-const resultContainer = document.getElementById('result');
-let score = 0;
+const form = document.createElement('form');
 
 testData.questions.forEach((question, index) => {
-    const questionElement = document.createElement('div');
-    questionElement.classList.add('question');
-    questionElement.innerHTML = `<p>${index + 1}. ${question.question}</p>`;
-    
-    question.answers.forEach(answer => {
-        const answerElement = document.createElement('input');
-        answerElement.type = 'radio';
-        answerElement.name = `question${index}`;
-        answerElement.value = answer.isCorrect;
-        const labelElement = document.createElement('label');
-        labelElement.textContent = answer.answer;
-        
-        questionElement.appendChild(answerElement);
-        questionElement.appendChild(labelElement);
+    const questionDiv = document.createElement('div');
+    questionDiv.setAttribute('id', `question${index}`);
+
+    const questionLabel = document.createElement('label');
+    questionLabel.textContent = `${index + 1}. ${question.question}`;
+    questionDiv.appendChild(questionLabel);
+
+    questionDiv.appendChild(document.createElement('br'));
+
+    question.answers.forEach((answer, answerIndex) => {
+        const answerInput = document.createElement('input');
+        answerInput.setAttribute('type', 'radio');
+        answerInput.setAttribute('name', `answer${index}`);
+        answerInput.setAttribute('value', answer.isCorrect);
+        questionDiv.appendChild(answerInput);
+
+        const answerLabel = document.createElement('label');
+        answerLabel.textContent = answer.answer;
+        questionDiv.appendChild(answerLabel);
     });
 
-    testContainer.appendChild(questionElement);
+    form.appendChild(questionDiv);
 });
 
-function submitTest() {
-    testContainer.style.display = 'none';
-    resultContainer.textContent = `Your score is ${score} out of ${testData.questions.length}`;
-}
+document.body.appendChild(form);
 
+let answersCollector = [];
+let count = 0;
+
+
+
+function submitAnsw(){
+    for(let i = 0; i < 5; i++){
+        let answer = document.querySelector(`input[name='answer${i}']:checked`).value;
+        if(answer == "true"){count++};
+        answersCollector[i] = answer;
+    }
+    console.log(answersCollector);
+    let results = document.getElementById('results');
+    results.style.display = 'flex';
+    results.textContent = `Результат ${count}/5`;
+
+    answersCollector.forEach((element , elementIndex) => {
+        if(element == 'false'){
+            const answerDiv = document.getElementById(`question${elementIndex}`);
+            answerDiv.style.backgroundColor = '#BC412B';
+
+            let answer = document.querySelector(`input[name='answer${elementIndex}'][value='true']`);
+            const labelForAnswer = answer.nextElementSibling.textContent;
+            let correctAnw = answerDiv.appendChild(document.createElement('div'));
+            correctAnw.innerHTML = `<p>Правильна відповідь: ${labelForAnswer}</p> `;
+            
+        }
+        if(element == 'true'){
+            const answerDiv = document.getElementById(`question${elementIndex}`);
+            answerDiv.style.backgroundColor = '#68A357';
+        }
+    });
+
+}
