@@ -102,7 +102,12 @@
   </div>
 
   <script>
-        let submitions = [];
+        if(localStorage.getItem('submitions') == null){
+          var submitions = [];
+        }
+        else{
+          var submitions = JSON.parse(localStorage.getItem('submitions'));
+        }
         function submitData(){
             let name = document.getElementById('name').value;
             console.log(name);
@@ -186,7 +191,7 @@
                 if(element.gender == 'male'){
                     maleArray.push(element);
                 }
-                if(element.travelAbroad == 'yes'){
+                if(element.haveTraveled == 'yes'){
                     travelAbroad.push(element);
                 }
                 if(element.age > 25){
