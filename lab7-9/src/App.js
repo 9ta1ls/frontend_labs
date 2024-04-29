@@ -4,7 +4,7 @@ import SelectQuestionsPage from './SelectQuestionsPage';
 import TestPage from './TestPage';
 
 const App = () => {
-  const [questions, setQestions] = useState([
+  let [questions, setQuestions] = useState([
     {
       question: "З якого я населеного пункту?",
       answers: [
@@ -116,8 +116,8 @@ const App = () => {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<SelectQuestionsPage array={questions}/>} />   
-          <Route path="/test" element={<TestPage array={questions}/>} />         
+          <Route path="/" element={<SelectQuestionsPage questions={questions} setQuestions={setQuestions}/>} />   
+          <Route path="/test" element={<TestPage questions={questions}/>} />         
         </Routes>
       </BrowserRouter>
     );

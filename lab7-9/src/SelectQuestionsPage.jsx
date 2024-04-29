@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-const SelectQuestionsPage = ({ array }) => {
+const SelectQuestionsPage = ({ questions , setQuestions}) => {
   const navigate = useNavigate();
   const [selectedItems, setSelectedItems] = useState([]);
 
@@ -17,15 +17,15 @@ const SelectQuestionsPage = ({ array }) => {
     });
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     console.log(selectedItems);
-
-    navigate(`/test?selectedItems=${selectedItems.join(',')}`);
+      await setQuestions(prevQuestions => prevQuestions.filter((question, index) => selectedItems.includes(index)));
+      navigate(`/test`);
   }
 
   return (
     <div>
-      {array.map((question, index) => (
+      {questions.map((question, index) => (
         <div key={index} className="question">
           <p>
             {index + 1}. {question.question} <input type="checkbox" onChange={() => handleCheckboxChange(index)} />
