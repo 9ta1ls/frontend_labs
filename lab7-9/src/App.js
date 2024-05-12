@@ -2,122 +2,122 @@ import React , {useEffect, useState}from 'react';
 import {BrowserRouter, Routes, Route } from 'react-router-dom';
 import SelectQuestionsPage from './SelectQuestionsPage';
 import TestPage from './TestPage';
+import ResultsPage from './ResultsPage';
 
 const App = () => {
-  let [questions, setQuestions] = useState([
-    {
-      question: "З якого я населеного пункту?",
-      answers: [
-          {
-              answer: "Городок",
+    let [questions, setQuestions] = useState([
+        {
+          question: "Яка порода собак вважається найшвидшою?",
+          answers: [
+            {
+              answer: "Німецька вівчарка",
               isCorrect: false,
-          },
-          {
-              answer: "Квасилів",
+            },
+            {
+              answer: "Лабрадор ретривер",
+              isCorrect: false,
+            },
+            {
+              answer: "Сірійхаунд",
               isCorrect: true,
-          },
-          {
-              answer: "Рівне",
+            },
+            {
+              answer: "Бульдог",
               isCorrect: false,
-          },
-          {
-              answer: "Вараш",
+            }
+          ],
+        },
+        {
+          question: "Яку унікальну здатність мають собаки, яка відрізняє їх від людей?",
+          answers: [
+            {
+              answer: "Бачити ультрафіолет",
               isCorrect: false,
-          }
-      ],
-  },
-  {
-      question: "Який мій улюблений колір?",
-      answers: [
-          {
-              answer: "Зелений",
+            },
+            {
+              answer: "Відчувати магнітне поле Землі",
               isCorrect: true,
-          },
-          {
-              answer: "Жовтий",
+            },
+            {
+              answer: "Слухати ультразвук",
               isCorrect: false,
-          },
-          {
-              answer: "Червоний",
+            },
+            {
+              answer: "Бачити в повній темряві",
               isCorrect: false,
-          },
-          {
-              answer: "Чорний",
+            }
+          ],
+        },
+        {
+          question: "Скільки зубів зазвичай має доросла собака?",
+          answers: [
+            {
+              answer: "24",
               isCorrect: false,
-          }
-      ],
-  },
-  {
-      question: "Яка моя улюблена пісня Radiohead?",
-      answers: [
-          {
-              answer: "Jigsaw Falling Into Place",
+            },
+            {
+              answer: "32",
               isCorrect: false,
-          },
-          {
-              answer: "Let Down",
+            },
+            {
+              answer: "42",
               isCorrect: true,
-          },
-          {
-              answer: "Creep",
+            },
+            {
+              answer: "36",
               isCorrect: false,
-          },
-          {
-              answer: "No Surprises",
-              isCorrect: false,
-          }
-      ],
-  },
-  {
-      question: "У якому місяці я народився?",
-      answers: [
-          {
-              answer: "Вересень",
+            }
+          ],
+        },
+        {
+          question: "Яка порода собак є найменшою у світі?",
+          answers: [
+            {
+              answer: "Чихуахуа",
               isCorrect: true,
-          },
-          {
-              answer: "Грудень",
+            },
+            {
+              answer: "Померанський спіц",
               isCorrect: false,
-          },
-          {
-              answer: "Травень",
+            },
+            {
+              answer: "Йоркширський тер'єр",
               isCorrect: false,
-          },
-          {
-              answer: "Липень",
+            },
+            {
+              answer: "Дакшунд",
               isCorrect: false,
-          }
-      ],
-  },
-   {
-      question: "В якому класі я навчався у школі?",
-      answers: [
-          {
-              answer: "Український",
-              isCorrect: false,
-          },
-          {
-              answer: "Англійський",
-              isCorrect: false,
-          },
-          {
-              answer: "Простий",
-              isCorrect: false,
-          },
-          {
-              answer: "Математичний",
+            }
+          ],
+        },
+        {
+          question: "Яка порода собак відома своєю здатністю плавати?",
+          answers: [
+            {
+              answer: "Лабрадор ретривер",
               isCorrect: true,
-          }
-      ],
-  }
-]
-  )
-
+            },
+            {
+              answer: "Бульдог",
+              isCorrect: false,
+            },
+            {
+              answer: "Доберман",
+              isCorrect: false,
+            },
+            {
+              answer: "Ши-тцу",
+              isCorrect: false,
+            }
+          ],
+        }
+      ]);
     return (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SelectQuestionsPage questions={questions} setQuestions={setQuestions}/>} />   
-          <Route path="/test" element={<TestPage questions={questions}/>} />         
+          <Route path="/test" element={<TestPage questions={questions}/>} />  
+          <Route path="/results" element={<ResultsPage/>} />   
         </Routes>
       </BrowserRouter>
     );

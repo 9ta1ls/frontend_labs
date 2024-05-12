@@ -18,13 +18,12 @@ const SelectQuestionsPage = ({ questions , setQuestions}) => {
   }
 
   const handleSubmit = async() => {
-    console.log(selectedItems);
       await setQuestions(prevQuestions => prevQuestions.filter((question, index) => selectedItems.includes(index)));
       navigate(`/test`);
   }
 
   return (
-    <div>
+    <div id="container">
       {questions.map((question, index) => (
         <div key={index} className="question">
           <p>
@@ -32,7 +31,7 @@ const SelectQuestionsPage = ({ questions , setQuestions}) => {
           </p>
         </div>
       ))}
-      <button onClick={handleSubmit}>Пройти тест</button>
+    <button onClick={handleSubmit} disabled={selectedItems.length === 0}>Пройти тест</button>
     </div>
   );
 };
