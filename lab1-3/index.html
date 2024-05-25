@@ -3,32 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <title>Portfolio</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header-name {
+            font-family: 'Playfair Display', serif;
+        }
+        .contact-text {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <img id="header-photo" src="pictures/DSCF0113.jpg">
-        <h1 id="header-name">Skyler Knutzen</h1>
-
+<body class="bg-black text-white font-sans">
+    <header class="flex justify-center items-center h-screen relative text-center">
+        <img id="header-photo" src="pictures/DSCF0113.jpg" class="object-cover w-full h-full absolute z-0">
+        <h1 id="header-name" class="header-name text-6xl lg:text-9xl absolute text-red-600 z-10">Skyler Knutzen</h1>
     </header>
-    <nav>
-        <div id="nav-buttons">
-            <button id="about-button" onClick="document.getElementById('about-block').scrollIntoView();">About</button>
-            <button id="gallery-button" onClick="document.getElementById('photo-gallery').scrollIntoView();">Gallery</button>
-            <button id="contact-button" onClick="document.getElementById('contact-container').scrollIntoView();">Contact</button>
-        </div>
-        <div id="nav-button-phone">
-            <botton id="menu-button">Menu</botton>
-        </div>
+    <nav class="fixed top-6 right-10 z-50 flex space-x-3">
+        <button id="about-button" onClick="document.getElementById('about-block').scrollIntoView();" class="bg-red-500 bg-opacity-25 text-red-600 border border-red-600 rounded px-4 py-2 font-bold">About</button>
+        <button id="gallery-button" onClick="document.getElementById('photo-gallery').scrollIntoView();" class="bg-red-500 bg-opacity-25 text-red-600 border border-red-600 rounded px-4 py-2 font-bold">Gallery</button>
+        <button id="contact-button" onClick="document.getElementById('contact-container').scrollIntoView();" class="bg-red-500 bg-opacity-25 text-red-600 border border-red-600 rounded px-4 py-2 font-bold">Contact</button>
     </nav>
     <main>
-        <div id="about-container">
-            <div id="about-block">
-                <div id="about-picture">
-                    <img src="/pictures/14a2c6_3bf3e4e0d40545dc83512ea3fa024c9b~mv2.webp" alt="">
+        <div id="about-container" class="my-20 flex justify-center items-center">
+            <div id="about-block" class="flex flex-col md:flex-row w-4/5 bg-opacity-25 bg-black">
+                <div id="about-picture" class="w-full md:w-2/5">
+                    <img src="pictures/14a2c6_3bf3e4e0d40545dc83512ea3fa024c9b~mv2.webp" alt="" class="w-30% h-full object-cover">
                 </div>
-                <div id="about-text">
+                <div id="about-text" class="w-full md:w-3/5 p-4 text-lg">
                     <strong>Skyler Knutzen</strong> is a New York based Director, DP, and Editor
                     interested in the ways everyday life is wrapped up in memory, mortality, and familial connections. 
                     <p></p>
@@ -39,33 +48,31 @@
                 </div>
              </div>
         </div>
-        <div id="photo-gallery">
-            <div class="column">
-                <img src="pictures//PA158093-ORF_DxO_DeepPRIME.jpg">
-                <img src="pictures/DSCF4687 1.jpg">
-                <img src="pictures/DSCF0095.jpg">
-
+        <div id="photo-gallery" class="max-w-5xl mx-auto mb-20 grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="flex flex-col gap-5">
+                <img src="pictures/PA158093-ORF_DxO_DeepPRIME.jpg" class="w-full object-cover">
+                <img src="pictures/DSCF4687 1.jpg" class="w-full object-cover">
+                <img src="pictures/DSCF0095.jpg" class="w-full object-cover">
             </div>
-            <div class="column">
-                <img src="pictures/DSCF0100.jpg">
-                <img src="pictures/DSCF0358.jpg">
-
+            <div class="flex flex-col gap-5">
+                <img src="pictures/DSCF0100.jpg" class="w-full object-cover">
+                <img src="pictures/DSCF0358.jpg" class="w-full object-cover">
             </div>
-            <div class="column">
-                <img src="pictures/DSCF4899.jpg">
-                <img src="pictures/DSCF0082.jpg">
-                <img src="pictures/DSCF0078.jpg">
+            <div class="flex flex-col gap-5">
+                <img src="pictures/DSCF4899.jpg" class="w-full object-cover">
+                <img src="pictures/DSCF0082.jpg" class="w-full object-cover">
+                <img src="pictures/DSCF0078.jpg" class="w-full object-cover">
             </div>
         </div>
     </main>
-    <footer>
-        <div id="contact-container">
-            <div class="contact-text">
+    <footer class="flex flex-col justify-center items-center my-24 text-center">
+        <div id="contact-container" class="flex flex-col justify-center items-center gap-20 h-[70vh]">
+            <div class="contact-text text-2xl header-name text-red-600">
                 <h1>Contact</h1>
             </div>
-            <div class="contact-links">
+            <div class="contact-links flex justify-center gap-20 text-lg">
                 <strong>stylerknutzel@gmail.com</strong>
-                <a href="https://t.me/tkdfjzlg">Telegram</a>
+                <a href="https://t.me/tkdfjzlg" class="text-white">Telegram</a>
             </div>
         </div>
     </footer>
